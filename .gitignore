@@ -1,0 +1,13 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+-e 
+# ZENTRA seal secret & seal store
+data/seal.key
+data/report-seals.json
+data/memory-journal.json

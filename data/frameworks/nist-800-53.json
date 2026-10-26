@@ -1,0 +1,107 @@
+{
+  "frameworkId": "nist",
+  "name": "NIST SP 800-53",
+  "version": "Rev. 5",
+  "description": "Security and Privacy Controls for Federal Information Systems and Organizations.",
+  "controls": [
+    {
+      "id": "NIST-AC-17",
+      "title": "Remote Access Management & Encryption",
+      "severity": "CRITICAL",
+      "field": "telnet_enabled",
+      "operator": "equals",
+      "expectedValue": false,
+      "remediation": "For {vendor}, disallow cleartext remote access mechanisms; disable Telnet and restrict management connectivity strictly to FIPS-approved SSH."
+    },
+    {
+      "id": "NIST-IA-5",
+      "title": "Authenticator Management & Password Complexity",
+      "severity": "HIGH",
+      "field": "min_password_length",
+      "operator": "gte",
+      "expectedValue": 12,
+      "remediation": "For {vendor}, satisfy NIST authenticator controls by configuring a minimum password length of at least 12 characters across all administrative roles."
+    },
+    {
+      "id": "NIST-IA-2",
+      "title": "Identification and Authentication for Central Administration",
+      "severity": "HIGH",
+      "field": "aaa_enabled",
+      "operator": "equals",
+      "expectedValue": true,
+      "remediation": "For {vendor}, enforce enterprise-wide identity verification: integrate device access with centralized AAA directory services (RADIUS/TACACS+)."
+    },
+    {
+      "id": "NIST-SC-8",
+      "title": "Transmission Confidentiality and Integrity (HTTPS)",
+      "severity": "HIGH",
+      "field": "https_enabled",
+      "operator": "equals",
+      "expectedValue": true,
+      "remediation": "For {vendor}, ensure web administrative traffic is protected in transit with HTTPS and approved TLS ciphers."
+    },
+    {
+      "id": "NIST-CM-7",
+      "title": "Least Functionality - Restrict Insecure HTTP Server",
+      "severity": "HIGH",
+      "field": "http_server_enabled",
+      "operator": "equals",
+      "expectedValue": false,
+      "remediation": "For {vendor}, eliminate attack surface by disabling unencrypted HTTP daemon services: configure 'no ip http server'."
+    },
+    {
+      "id": "NIST-AU-2",
+      "title": "Event Logging and Audit Record Transmission",
+      "severity": "HIGH",
+      "field": "logging_hosts",
+      "operator": "is_not_empty",
+      "expectedValue": true,
+      "remediation": "For {vendor}, configure audit log generation and automated forwarding to designated organization-defined logging repositories."
+    },
+    {
+      "id": "NIST-AU-8",
+      "title": "Time Stamp Synchronization via NTP",
+      "severity": "MEDIUM",
+      "field": "ntp_servers",
+      "operator": "is_not_empty",
+      "expectedValue": true,
+      "remediation": "For {vendor}, synchronize internal system clocks with authoritative external time sources using authenticated NTP protocol."
+    },
+    {
+      "id": "NIST-AC-12",
+      "title": "Session Termination After Inactivity Period",
+      "severity": "MEDIUM",
+      "field": "session_timeout",
+      "operator": "lte",
+      "expectedValue": 15,
+      "remediation": "For {vendor}, mandate automatic session lock/termination by configuring idle timeout to 15 minutes or less."
+    },
+    {
+      "id": "NIST-AC-8",
+      "title": "System Use Notification and Advisory Banner",
+      "severity": "LOW",
+      "field": "banner_set",
+      "operator": "equals",
+      "expectedValue": true,
+      "remediation": "For {vendor}, display approved federal system use notification warning prior to granting administrative access."
+    },
+    {
+      "id": "NIST-SC-13",
+      "title": "Cryptographic Protection of Stored Credentials",
+      "severity": "CRITICAL",
+      "field": "password_encryption",
+      "operator": "not_equals",
+      "expectedValue": "None",
+      "remediation": "For {vendor}, store administrative secrets using strong cryptographic hashes (Type 9 Scrypt or PBKDF2), never cleartext or weak Type 7."
+    },
+    {
+      "id": "NIST-SC-7",
+      "title": "Boundary Protection and Ingress Filtering",
+      "severity": "HIGH",
+      "field": "acl_count",
+      "operator": "gte",
+      "expectedValue": 1,
+      "remediation": "For {vendor}, deploy packet-filtering access control lists to separate management network interfaces from untrusted zones."
+    }
+  ]
+}

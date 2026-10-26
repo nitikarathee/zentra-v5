@@ -1,0 +1,98 @@
+{
+  "frameworkId": "iso-27001",
+  "name": "ISO/IEC 27001",
+  "version": "2022 Controls",
+  "description": "International standard for Information Security Management Systems (ISMS) Annex A security controls.",
+  "controls": [
+    {
+      "id": "ISO-A.8.20",
+      "title": "Network Security - Access Control & Boundary Filtering",
+      "severity": "HIGH",
+      "field": "acl_count",
+      "operator": "gte",
+      "expectedValue": 1,
+      "remediation": "For {vendor}, isolate network management domains and filter unauthorized connections using access control lists."
+    },
+    {
+      "id": "ISO-A.8.24",
+      "title": "Use of Cryptography - Enforce Strong Encryption in Transit",
+      "severity": "HIGH",
+      "field": "https_enabled",
+      "operator": "equals",
+      "expectedValue": true,
+      "remediation": "For {vendor}, enable TLS-encrypted communications (HTTPS) for all graphical and web management endpoints."
+    },
+    {
+      "id": "ISO-A.8.26",
+      "title": "Application Security - Disable Insecure Cleartext Protocols",
+      "severity": "CRITICAL",
+      "field": "telnet_enabled",
+      "operator": "equals",
+      "expectedValue": false,
+      "remediation": "For {vendor}, eliminate unencrypted Telnet and plaintext command channels across all network infrastructure."
+    },
+    {
+      "id": "ISO-A.8.5",
+      "title": "Secure Authentication - Centralized Identity & AAA Framework",
+      "severity": "HIGH",
+      "field": "aaa_enabled",
+      "operator": "equals",
+      "expectedValue": true,
+      "remediation": "For {vendor}, govern privileged access through centralized AAA authentication linked to corporate directory services."
+    },
+    {
+      "id": "ISO-A.8.9",
+      "title": "Configuration Management - Minimum Credential Length Policy",
+      "severity": "MEDIUM",
+      "field": "min_password_length",
+      "operator": "gte",
+      "expectedValue": 12,
+      "remediation": "For {vendor}, enforce security baseline standards requiring passwords of at least 12 characters."
+    },
+    {
+      "id": "ISO-A.8.15",
+      "title": "Logging - Recording and Central Review of Event Logs",
+      "severity": "HIGH",
+      "field": "logging_hosts",
+      "operator": "is_not_empty",
+      "expectedValue": true,
+      "remediation": "For {vendor}, transmit audit trail events to dedicated, secure central logging facilities."
+    },
+    {
+      "id": "ISO-A.8.17",
+      "title": "Clock Synchronization for Accurate Security Event Correlation",
+      "severity": "MEDIUM",
+      "field": "ntp_servers",
+      "operator": "is_not_empty",
+      "expectedValue": true,
+      "remediation": "For {vendor}, ensure uniform time synchronization using reliable network time protocol (NTP) servers."
+    },
+    {
+      "id": "ISO-A.5.15",
+      "title": "Access Control - Explicit Authorization and Warning Notice",
+      "severity": "LOW",
+      "field": "banner_set",
+      "operator": "equals",
+      "expectedValue": true,
+      "remediation": "For {vendor}, present a legal warning banner specifying conditions of authorized usage prior to session establishment."
+    },
+    {
+      "id": "ISO-A.8.19",
+      "title": "Installation and Use of Secure Protocols - SSH Version 2",
+      "severity": "HIGH",
+      "field": "ssh_version",
+      "operator": "contains",
+      "expectedValue": "2",
+      "remediation": "For {vendor}, require SSHv2 for all console and remote terminal management sessions."
+    },
+    {
+      "id": "ISO-A.8.8",
+      "title": "Management of Technical Vulnerabilities - Disable Insecure HTTP",
+      "severity": "HIGH",
+      "field": "http_server_enabled",
+      "operator": "equals",
+      "expectedValue": false,
+      "remediation": "For {vendor}, reduce vulnerability surface by terminating unencrypted HTTP administration daemons."
+    }
+  ]
+}

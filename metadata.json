@@ -1,0 +1,8 @@
+{
+  "name": "Remix ZENTRA - AI-Powered Zero-Trust API Security \u0026 Compliance Engine",
+  "description": "Discover, analyze, secure, and monitor APIs using Zero-Trust principles, CIS benchmark compliance auditing, and AI-powered security analysis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

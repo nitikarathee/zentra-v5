@@ -1,0 +1,16 @@
+{
+  "vendorPackId": "vyos-linux-pack",
+  "vendor": "VyOS Linux NOS",
+  "version": "1.4.0",
+  "description": "VyOS router rules",
+  "rules": [
+    {
+      "name": "SSH Port",
+      "field": "ssh_version",
+      "regex": "set service ssh port (\\d+)",
+      "extractionType": "capture_group",
+      "captureGroupIndex": 1
+    }
+  ],
+  "updatedAt": "2026-10-24T07:39:36.530Z"
+}
